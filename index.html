@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive + no zoom raro -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alfalovers</title>
+
+    <!-- Google Font elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="img/logoalfalovers.jpeg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- PANTALLA DE BIENVENIDA -->
+<div id="intro" class="intro">
+    <div class="intro-content">
+        <img src="img/logoalfalovers.jpeg" class="intro-logo">
+        <h2>Bienvenido a Alfalovers</h2>
+        <p>Donde cada alfajor es una historia de amor</p>
+        <button onclick="entrarWeb()">Da clic aquí</button>
+    </div>
+</div>
+
+<header>
+    <div class="logo-container">
+        <img src="img/logoalfalovers.jpeg" class="logo">
+        <h1>Alfalovers</h1>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Alfajores que enamoran</h2>
+        <p>Elegancia artesanal en cada bocado</p>
+        <button onclick="abrirCarta()">Ver Carta</button>
+    </div>
+</section>
+
+<section class="pedidos">
+    <h2>Pedidos Realizados</h2>
+
+    <div class="carousel">
+        <div class="slide-track" id="track">
+
+            <img src="img/pedido1.jpeg">
+            <img src="img/pedido2.jpeg">
+            <img src="img/pedido3.jpeg">
+            <img src="img/pedido4.jpeg">
+            <img src="img/pedido5.jpeg">
+            <img src="img/pedido6.jpeg">
+            <img src="img/pedido7.jpeg">
+            <img src="img/pedido8.jpeg">
+            <img src="img/pedido9.jpeg">
+            <img src="img/pedido10.jpeg">
+
+            <video autoplay muted loop playsinline>
+                <source src="img/video1.mp4" type="video/mp4">
+            </video>
+
+        </div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="modalCarta" class="modal">
+    <div class="modal-content">
+        <button class="cerrar" onclick="cerrarCarta()">✕</button>
+
+        <h2>Nuestra Carta</h2>
+        <img src="img/carta.jpeg" class="imagen-carta">
+
+        <a class="boton-wpp"
+           href="https://wa.me/51907444411?text=Hola%20quiero%20hacer%20un%20pedido%20de%20Alfalovers"
+           target="_blank">
+           Hacer Pedido
+        </a>
+    </div>
+</div>
+
+<!-- MODAL IMAGEN -->
+<div id="modalImagen" class="modal">
+    <div class="modal-content">
+        <button class="cerrar" onclick="cerrarImagen()">✕</button>
+        <img id="imagenGrande" class="imagen-carta">
+    </div>
+</div>
+
+<a class="whatsapp-float"
+   href="https://wa.me/51907444411?text=Hola%20quiero%20información%20sobre%20Alfalovers"
+   target="_blank">
+   💬
+</a>
+
+<script>
+
+/* INTRO */
+function entrarWeb(){
+    document.getElementById("intro").style.opacity="0";
+    setTimeout(()=>{
+        document.getElementById("intro").style.display="none";
+    },600);
+}
+
+/* MODAL CARTA */
+function abrirCarta(){
+    document.getElementById("modalCarta").style.display="flex";
+}
+function cerrarCarta(){
+    document.getElementById("modalCarta").style.display="none";
+}
+
+/* MODAL IMAGEN */
+function cerrarImagen(){
+    document.getElementById("modalImagen").style.display="none";
+}
+
+document.querySelectorAll("#track img").forEach(img=>{
+    img.addEventListener("click", ()=>{
+        document.getElementById("imagenGrande").src = img.src;
+        document.getElementById("modalImagen").style.display="flex";
+    });
+});
+
+window.onclick = function(e){
+    const modalCarta = document.getElementById("modalCarta");
+    const modalImagen = document.getElementById("modalImagen");
+
+    if(e.target == modalCarta){
+        modalCarta.style.display="none";
+    }
+    if(e.target == modalImagen){
+        modalImagen.style.display="none";
+    }
+}
+
+/* DRAG */
+const slider = document.getElementById("track");
+let isDown=false, startX, scrollLeft;
+
+slider.addEventListener("mousedown",(e)=>{
+    isDown=true;
+    slider.style.cursor="grabbing";
+    startX=e.pageX-slider.offsetLeft;
+    scrollLeft=slider.scrollLeft;
+});
+slider.addEventListener("mouseleave",()=>isDown=false);
+slider.addEventListener("mouseup",()=>isDown=false);
+slider.addEventListener("mousemove",(e)=>{
+    if(!isDown) return;
+    e.preventDefault();
+    const x=e.pageX-slider.offsetLeft;
+    const walk=(x-startX)*1.5;
+    slider.scrollLeft=scrollLeft-walk;
+});
+slider.addEventListener("touchstart",(e)=>{
+    startX=e.touches[0].pageX-slider.offsetLeft;
+    scrollLeft=slider.scrollLeft;
+});
+slider.addEventListener("touchmove",(e)=>{
+    const x=e.touches[0].pageX-slider.offsetLeft;
+    const walk=(x-startX)*1.5;
+    slider.scrollLeft=scrollLeft-walk;
+});
+
+</script>
+
+
+</body>
+</html>
