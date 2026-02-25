@@ -2,174 +2,212 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Responsive + no zoom raro -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfalovers • Alfajores Artesanales Premium</title>
+    <meta name="description" content="Alfajores artesanales hechos con amor. Ingredientes premium, sabores únicos y mucho cariño en cada bocado.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <title>Alfalovers</title>
-
-    <!-- Google Font elegante -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="img/logoalfalovers.jpeg">
+    <link rel="icon" href="img/logoalfalovers.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- PANTALLA DE BIENVENIDA -->
-<div id="intro" class="intro">
+<!-- Intro / Splash Screen -->
+<div id="intro" class="intro" aria-hidden="true">
     <div class="intro-content">
-        <img src="img/logoalfalovers.jpeg" class="intro-logo">
-        <h2>Bienvenido a Alfalovers</h2>
-        <p>Donde cada alfajor es una historia de amor</p>
-        <button onclick="entrarWeb()">Da clic aquí</button>
+        <img src="img/logoalfalovers.jpeg" alt="Logo Alfalovers" class="intro-logo" loading="lazy">
+        <h1>Bienvenido a Alfalovers</h1>
+        <p>Donde cada alfajor cuenta una historia de amor y pasión artesanal</p>
+        <button onclick="entrarWeb()" aria-label="Entrar al sitio">Descubrir ahora</button>
     </div>
 </div>
 
-<header>
-    <div class="logo-container">
-        <img src="img/logoalfalovers.jpeg" class="logo">
-        <h1>Alfalovers</h1>
+<!-- Header Sticky -->
+<header class="header">
+    <div class="container header-container">
+        <div class="logo-container">
+            <img src="img/logoalfalovers.jpeg" alt="Alfalovers Logo" class="logo" loading="lazy">
+            <h1>Alfalovers</h1>
+        </div>
     </div>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-    <div class="hero-content">
-        <h2>Alfajores que enamoran</h2>
-        <p>Elegancia artesanal en cada bocado</p>
-        <button onclick="abrirCarta()">Ver Carta</button>
-    </div>
-</section>
-
-<section class="pedidos">
-    <h2>Pedidos Realizados</h2>
-
-    <div class="carousel">
-        <div class="slide-track" id="track">
-
-            <img src="img/pedido1.jpeg">
-            <img src="img/pedido2.jpeg">
-            <img src="img/pedido3.jpeg">
-            <img src="img/pedido4.jpeg">
-            <img src="img/pedido5.jpeg">
-            <img src="img/pedido6.jpeg">
-            <img src="img/pedido7.jpeg">
-            <img src="img/pedido8.jpeg">
-            <img src="img/pedido9.jpeg">
-            <img src="img/pedido10.jpeg">
-
-            <video autoplay muted loop playsinline>
-                <source src="img/video1.mp4" type="video/mp4">
-            </video>
-
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h2>Alfajores que enamoran</h2>
+            <p class="lead">Elegancia artesanal, ingredientes premium y sabores que se quedan en el corazón</p>
+            <div class="hero-cta">
+                <button onclick="abrirCarta()" class="btn-primary">Ver nuestra carta</button>
+                <a href="https://wa.me/51907444411?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" class="btn-secondary" rel="noopener">Pedir por WhatsApp</a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- MODAL -->
-<div id="modalCarta" class="modal">
+<!-- Pedidos Realizados -->
+<section class="section pedidos">
+    <div class="container">
+        <h2 class="section-title">Pedidos que hablan por sí solos</h2>
+        <p class="section-subtitle">Nuestros clientes y sus momentos dulces</p>
+
+        <div class="carousel" aria-label="Carrusel de pedidos">
+            <div class="slide-track" id="track">
+                <!-- Originales -->
+                <img src="img/pedido1.jpeg" alt="Pedido de alfajores Alfalovers 1" loading="lazy">
+                <img src="img/pedido2.jpeg" alt="Pedido de alfajores Alfalovers 2" loading="lazy">
+                <img src="img/pedido3.jpeg" alt="Pedido de alfajores Alfalovers 3" loading="lazy">
+                <img src="img/pedido4.jpeg" alt="Pedido de alfajores Alfalovers 4" loading="lazy">
+                <img src="img/pedido5.jpeg" alt="Pedido de alfajores Alfalovers 5" loading="lazy">
+                <img src="img/pedido6.jpeg" alt="Pedido de alfajores Alfalovers 6" loading="lazy">
+                <img src="img/pedido7.jpeg" alt="Pedido de alfajores Alfalovers 7" loading="lazy">
+                <img src="img/pedido8.jpeg" alt="Pedido de alfajores Alfalovers 8" loading="lazy">
+                <img src="img/pedido9.jpeg" alt="Pedido de alfajores Alfalovers 9" loading="lazy">
+                <img src="img/pedido10.jpeg" alt="Pedido de alfajores Alfalovers 10" loading="lazy">
+                <video autoplay muted loop playsinline aria-label="Video de alfajores Alfalovers">
+                    <source src="img/video1.mp4" type="video/mp4">
+                </video>
+
+                <!-- Duplicados para loop infinito -->
+                <img src="img/pedido1.jpeg" alt="Pedido de alfajores Alfalovers 1" loading="lazy">
+                <img src="img/pedido2.jpeg" alt="Pedido de alfajores Alfalovers 2" loading="lazy">
+                <img src="img/pedido3.jpeg" alt="Pedido de alfajores Alfalovers 3" loading="lazy">
+                <img src="img/pedido4.jpeg" alt="Pedido de alfajores Alfalovers 4" loading="lazy">
+                <img src="img/pedido5.jpeg" alt="Pedido de alfajores Alfalovers 5" loading="lazy">
+                <img src="img/pedido6.jpeg" alt="Pedido de alfajores Alfalovers 6" loading="lazy">
+                <img src="img/pedido7.jpeg" alt="Pedido de alfajores Alfalovers 7" loading="lazy">
+                <img src="img/pedido8.jpeg" alt="Pedido de alfajores Alfalovers 8" loading="lazy">
+                <img src="img/pedido9.jpeg" alt="Pedido de alfajores Alfalovers 9" loading="lazy">
+                <img src="img/pedido10.jpeg" alt="Pedido de alfajores Alfalovers 10" loading="lazy">
+                <video autoplay muted loop playsinline aria-label="Video de alfajores Alfalovers">
+                    <source src="img/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Carta -->
+<div id="modalCarta" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-        <button class="cerrar" onclick="cerrarCarta()">✕</button>
-
-        <h2>Nuestra Carta</h2>
-        <img src="img/carta.jpeg" class="imagen-carta">
-
-        <a class="boton-wpp"
-           href="https://wa.me/51907444411?text=Hola%20quiero%20hacer%20un%20pedido%20de%20Alfalovers"
-           target="_blank">
-           Hacer Pedido
+        <button class="cerrar" onclick="cerrarCarta()" aria-label="Cerrar modal">✕</button>
+        <h2 id="modalTitle">Nuestra Carta</h2>
+        <img src="img/carta.jpeg" alt="Carta de productos Alfalovers" class="imagen-carta" loading="lazy">
+        <a href="https://wa.me/51907444411?text=Hola%20quiero%20hacer%20un%20pedido%20de%20Alfalovers" 
+           target="_blank" class="btn-primary boton-wpp" rel="noopener">
+           Hacer mi pedido ahora
         </a>
     </div>
 </div>
 
-<!-- MODAL IMAGEN -->
-<div id="modalImagen" class="modal">
+<!-- Modal Imagen Ampliada -->
+<div id="modalImagen" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
-        <button class="cerrar" onclick="cerrarImagen()">✕</button>
-        <img id="imagenGrande" class="imagen-carta">
+        <button class="cerrar" onclick="cerrarImagen()" aria-label="Cerrar imagen">✕</button>
+        <img id="imagenGrande" alt="Imagen ampliada" class="imagen-ampliada">
     </div>
 </div>
 
-<a class="whatsapp-float"
-   href="https://wa.me/51907444411?text=Hola%20quiero%20información%20sobre%20Alfalovers"
-   target="_blank">
-   💬
+<!-- WhatsApp Float -->
+<a href="https://wa.me/51907444411?text=Hola%2C%20quiero%20información%20sobre%20Alfalovers" 
+   class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp" rel="noopener">
+    💬
 </a>
 
+<!-- Footer actualizado -->
+<footer class="footer">
+    <div class="container">
+        <p class="copyright">
+            © 2026 Alfalovers • Desarrollo y diseño por Josué Lopez
+        </p>
+    </div>
+</footer>
+
 <script>
+// Año dinámico (por si más adelante quieres cambiarlo a variable)
+document.addEventListener("DOMContentLoaded", () => {
+    // Si en el futuro quieres año dinámico: document.getElementById("year").textContent = new Date().getFullYear();
+});
 
-/* INTRO */
-function entrarWeb(){
-    document.getElementById("intro").style.opacity="0";
-    setTimeout(()=>{
-        document.getElementById("intro").style.display="none";
-    },600);
+// Intro
+function entrarWeb() {
+    const intro = document.getElementById("intro");
+    intro.style.opacity = "0";
+    setTimeout(() => { intro.style.display = "none"; }, 800);
 }
 
-/* MODAL CARTA */
-function abrirCarta(){
-    document.getElementById("modalCarta").style.display="flex";
+// Modal Carta
+function abrirCarta() {
+    document.getElementById("modalCarta").style.display = "flex";
 }
-function cerrarCarta(){
-    document.getElementById("modalCarta").style.display="none";
-}
-
-/* MODAL IMAGEN */
-function cerrarImagen(){
-    document.getElementById("modalImagen").style.display="none";
+function cerrarCarta() {
+    document.getElementById("modalCarta").style.display = "none";
 }
 
-document.querySelectorAll("#track img").forEach(img=>{
-    img.addEventListener("click", ()=>{
+// Modal Imagen
+function cerrarImagen() {
+    document.getElementById("modalImagen").style.display = "none";
+}
+
+document.querySelectorAll("#track img").forEach(img => {
+    img.addEventListener("click", () => {
         document.getElementById("imagenGrande").src = img.src;
-        document.getElementById("modalImagen").style.display="flex";
+        document.getElementById("imagenGrande").alt = img.alt;
+        document.getElementById("modalImagen").style.display = "flex";
     });
 });
 
-window.onclick = function(e){
-    const modalCarta = document.getElementById("modalCarta");
-    const modalImagen = document.getElementById("modalImagen");
-
-    if(e.target == modalCarta){
-        modalCarta.style.display="none";
+// Cerrar modales al click fuera
+window.onclick = function(e) {
+    if (e.target.classList.contains("modal")) {
+        e.target.style.display = "none";
     }
-    if(e.target == modalImagen){
-        modalImagen.style.display="none";
-    }
-}
+};
 
-/* DRAG */
+// Drag en carrusel
 const slider = document.getElementById("track");
-let isDown=false, startX, scrollLeft;
+let isDown = false, startX, scrollLeft;
 
-slider.addEventListener("mousedown",(e)=>{
-    isDown=true;
-    slider.style.cursor="grabbing";
-    startX=e.pageX-slider.offsetLeft;
-    scrollLeft=slider.scrollLeft;
+slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    slider.style.cursor = "grabbing";
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
 });
-slider.addEventListener("mouseleave",()=>isDown=false);
-slider.addEventListener("mouseup",()=>isDown=false);
-slider.addEventListener("mousemove",(e)=>{
-    if(!isDown) return;
+slider.addEventListener("mouseleave", () => isDown = false);
+slider.addEventListener("mouseup", () => isDown = false);
+slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
     e.preventDefault();
-    const x=e.pageX-slider.offsetLeft;
-    const walk=(x-startX)*1.5;
-    slider.scrollLeft=scrollLeft-walk;
-});
-slider.addEventListener("touchstart",(e)=>{
-    startX=e.touches[0].pageX-slider.offsetLeft;
-    scrollLeft=slider.scrollLeft;
-});
-slider.addEventListener("touchmove",(e)=>{
-    const x=e.touches[0].pageX-slider.offsetLeft;
-    const walk=(x-startX)*1.5;
-    slider.scrollLeft=scrollLeft-walk;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.8;
+    slider.scrollLeft = scrollLeft - walk;
 });
 
+slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener("touchmove", (e) => {
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.8;
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// Cerrar con Escape
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        cerrarCarta();
+        cerrarImagen();
+    }
+});
 </script>
-
 
 </body>
 </html>
